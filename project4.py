@@ -4,6 +4,6 @@ def isDiv(n):
 num = 3000
 
 while not isDiv(num):
-	num += 1
+	num += 20
 
 print num

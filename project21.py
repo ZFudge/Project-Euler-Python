@@ -16,14 +16,15 @@ def indexMultiplier(value,index):
 f = open('names.txt', 'r')
 fr = f.read()
 nameArray = fr.split(',')
+nameArray.sort()
 f.close()
 
 totalValue = 0
 
 for indx,name in enumerate(nameArray):
+        #if indx < 1000: print "indx: {0}, name: {1}".format(indx,name)
         val = nameVal(name)
         val *= (indx + 1)
         totalValue += val
 
 print totalValue
-

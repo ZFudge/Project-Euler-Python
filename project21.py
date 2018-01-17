@@ -3,15 +3,15 @@ letters = {"a":1,"b":2,"c":3,"d":4,"e":5,"f":6,"g":7,"h":8,"i":9,"j":10,"k":11,"
 def letterVal(l):
         return letters[l]
 
-def nameVal(name):
+def nameVal(name,ind):
         nm = name.lower()
         value = 0
         for n in nm:
                 if n != '"' and n != '\n': value += letterVal(n)
-        return value
+        return indexMultiplier(value,ind)
 
-def indexMultiplier(value,index):
-        return value * index
+def indexMultiplier(val,ind):
+        return val * (ind + 1)
 
 f = open('names.txt', 'r')
 fr = f.read()
@@ -22,9 +22,7 @@ f.close()
 totalValue = 0
 
 for indx,name in enumerate(nameArray):
-        #if indx < 1000: print "indx: {0}, name: {1}".format(indx,name)
-        val = nameVal(name)
-        val *= (indx + 1)
+        val = nameVal(name,indx)
         totalValue += val
 
 print totalValue
